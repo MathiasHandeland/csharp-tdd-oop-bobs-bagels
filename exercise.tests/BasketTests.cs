@@ -120,5 +120,24 @@ public class BasketTests
 
         // assert
         Assert.That(basketTotal != 0);
+        Assert.That(basketTotal, Is.EqualTo(1.37m)); // 0.49 + 0.39 + 0.49 = 1.37
     }
+
+    [Test] // user story 7
+    public void BagelPrice()
+    {
+        // arrange
+        Bagel onionBagel = new Bagel("BGLO");
+        Bagel plainBagel = new Bagel("BGLP");
+        Bagel everythingBagel = new Bagel("BGLE");
+        Bagel sesameBagel = new Bagel("BGLS");
+
+        // act and assert
+        Assert.That(onionBagel.Price, Is.EqualTo(0.49m));
+        Assert.That(plainBagel.Price, Is.EqualTo(0.39m));
+        Assert.That(everythingBagel.Price, Is.EqualTo(0.49m));
+        Assert.That(sesameBagel.Price, Is.EqualTo(0.49m));
+    }
+
+
 }

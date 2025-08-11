@@ -61,7 +61,7 @@ I'd like to know the total cost of items in my basket.
 ```
 | Classes      | Methods/Properties               | Scenario                                     | Outputs         |
 |--------------|----------------------------------|----------------------------------------------|-----------------|
-| Basket       | BasketTotal (propertyd)          | Return the total cost of products in basket  | decimal         |  
+| Basket       | BasketTotal (property)           | Return the total cost of products in basket  | decimal         |  
 
 ```
 7.
@@ -69,9 +69,9 @@ As a customer,
 So I know what the damage will be,
 I'd like to know the cost of a bagel before I add it to my basket.
 ```
-| Classes      | Methods/Properties               | Scenario                                     | Outputs         |
-|--------------|----------------------------------|----------------------------------------------|-----------------|
-| Basket       | BasketTotal (propertyd)          | Return the cost of the bagel                 | decimal         |  
+| Classes      | Methods/Properties        | Scenario                                     | Outputs         |
+|--------------|---------------------------|----------------------------------------------|-----------------|
+| Bagel        | Price (property)          | Return the cost of the bagel                 | decimal         |  
 
 ```
 8.
