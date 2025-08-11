@@ -71,7 +71,7 @@ I'd like to know the cost of a bagel before I add it to my basket.
 ```
 | Classes      | Methods/Properties        | Scenario                                     | Outputs         |
 |--------------|---------------------------|----------------------------------------------|-----------------|
-| Bagel        | Price (property)          | Return the cost of the bagel                 | decimal         |  
+| Bagel        | Price (property)          | Return the price of the bagel                | decimal         |  
 
 ```
 8.
@@ -89,6 +89,9 @@ As a customer,
 So I don't over-spend,
 I'd like to know the cost of each filling before I add it to my bagel order.
 ```
+| Classes      | Methods/Properties        | Scenario                                        | Outputs         |
+|--------------|---------------------------|-------------------------------------------------|-----------------|
+|  Filling     |  Price (property)         | Returns the price of the filling bagel filling  | decimal         |  
 
 ```
 10.
