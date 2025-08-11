@@ -18,8 +18,16 @@ namespace exercise.main.Products
             {"BGLS", 0.49m}  // Sesame
         };
 
+        private static readonly Dictionary<string, string> VariantNames = new Dictionary<string, string>()
+    {
+        {"BGLO", "Onion"},
+        {"BGLP", "Plain"},
+        {"BGLE", "Everything"},
+        {"BGLS", "Sesame"}
+    };
+
         private string _id;
-        private Filling _filling;
+        private List<Filling> _fillings = new List<Filling>();
 
         public Bagel(string id)
         {
@@ -34,20 +42,33 @@ namespace exercise.main.Products
             {
                 if (!VariantPrices.ContainsKey(_id))
                     throw new ArgumentException($"Invalid bagel id: {_id}");
-                return VariantPrices[_id];
+                decimal price = VariantPrices[_id]; // get the spesific bagel´s price
+                price += _fillings.Sum(f => f.Price);
+                return price;
             }
         }
 
-        public string Variant { get; }
+        public string Variant
+        {
+            get
+            {
+                if (!VariantNames.ContainsKey(_id))
+                    throw new ArgumentException($"Invalid bagel id: {_id}");
+                return VariantNames[_id];
+            }
+        }
 
         public string Id { get { return _id; } }
 
-        public Filling Filling { get; set; }
-        public void SetFilling(Filling filling, Inventory inventory)
+        public IReadOnlyList<Filling> Fillings => _fillings.AsReadOnly();
+        public void AddFillings(IEnumerable<Filling> fillings, Inventory inventory)
         {
-            if (!inventory.IsInInventory(filling.Id))
-                throw new ArgumentException($"Filling {filling.Id} is not in inventory.");
-            this.Filling = filling;
+            foreach (var filling in fillings)
+            {
+                if (!inventory.IsInInventory(filling.Id))
+                    throw new ArgumentException($"Filling {filling.Id} is not in inventory.");
+                _fillings.Add(filling);
+            }
         }
 
     }

@@ -17,7 +17,7 @@ namespace exercise.main.Products
         }
         public string Name => "Filling";
 
-        public decimal Price => 0.12m; // the price is the same for every variant of filling
+        public decimal Price => 0.12m; // price is the same for every filling variant
 
         public string Variant { get; }
 

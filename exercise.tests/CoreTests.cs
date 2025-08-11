@@ -20,6 +20,7 @@ public class CoreTests
         // assert
         Assert.That(basket.basketItems.Count, Is.EqualTo(1));
         Assert.That(basket.basketItems[0].Id, Is.EqualTo("BGLO"));
+        Assert.That(basket.basketItems[0].Variant, Is.EqualTo("Onion"));
     }
 
     [Test] // user story 2
@@ -28,14 +29,19 @@ public class CoreTests
         // arrange
         Inventory inventory = new Inventory();
         Basket basket = new Basket(inventory);
-        IProduct onionBagel = new Bagel("BGLO");
-        basket.AddProduct(onionBagel);
-        
+        IProduct sesameBagel = new Bagel("BGLS");
+        basket.AddProduct(sesameBagel);
+
+        // assert that the sesame bagel is in the basket
+        Assert.That(basket.basketItems.Count, Is.EqualTo(1));
+        Assert.That(basket.basketItems, Does.Contain(sesameBagel));
+
         // act
-        basket.RemoveProduct("BGLO"); // removes the Bagel with ID "BGLO"
+        basket.RemoveProduct("BGLS"); // removes the Bagel with ID "BGLO"
 
         // assert
         Assert.That(basket.basketItems.Count, Is.EqualTo(0));
+        Assert.That(basket.basketItems, Does.Not.Contain(sesameBagel));
     }
 
     [Test] // user story 3
@@ -55,6 +61,7 @@ public class CoreTests
         
         // assert
         Assert.That(isFull, Is.True);
+        Assert.Throws<InvalidOperationException>(() => basket.AddProduct(new Bagel("BGLE"))); // trying to add another bagel should throw an exception
     }
 
     [Test] // user story 3
@@ -73,6 +80,7 @@ public class CoreTests
 
         // assert
         Assert.That(isFull, Is.False);
+        Assert.DoesNotThrow(() => basket.AddProduct(new Bagel("BGLE"))); // adding another bagel should not throw an exception
     }
 
     [Test] // user story 4
@@ -114,7 +122,7 @@ public class CoreTests
     }
 
     [Test] // user story 6
-    public void BasketTotal()
+    public void BasketTotal1()
     {
         // arrange
         Inventory inventory = new Inventory();
@@ -129,6 +137,32 @@ public class CoreTests
         // assert
         Assert.That(basketTotal != 0);
         Assert.That(basketTotal, Is.EqualTo(1.37m)); // 0.49 + 0.39 + 0.49 = 1.37
+    }
+
+    [Test] // user story 6: make sure that it also adds the price for the bagel fillings to BasketTotal
+    public void BasketTotal2()
+    {
+        // arrange
+        Inventory inventory = new Inventory();
+        Basket basket = new Basket(inventory);
+        
+        Filling cheese = new Filling("FILC");
+        Filling bacon = new Filling("FILB");
+
+        Bagel onionBagel = new Bagel("BGLO");
+        onionBagel.AddFillings(new[] { cheese, bacon }, inventory); // add fillings to the onion bagel
+        basket.AddProduct(onionBagel); // adds the onion bagel with fillings to the basket
+
+        Bagel sesameBagel = new Bagel("BGLS");
+        sesameBagel.AddFillings(new[] { cheese }, inventory); // add filling to the sesame bagel
+        basket.AddProduct(sesameBagel); // adds the sesame bagel with filling to the basket
+
+        // act
+        decimal basketTotal = basket.BasketTotal;
+
+        // assert
+        Assert.That(basketTotal != 0);
+        Assert.That(basketTotal, Is.EqualTo(1.34m));    
     }
 
     [Test] // user story 7
@@ -153,13 +187,15 @@ public class CoreTests
         // arrange
         Inventory inventory = new Inventory();
         Filling baconFilling = new Filling("FILB");
+        Filling cheeseFilling = new Filling("FILC");
         Bagel onionBagel = new Bagel("BGLO");
 
         // act 
-        onionBagel.SetFilling(baconFilling, inventory);
+        onionBagel.AddFillings(new[] { baconFilling, cheeseFilling }, inventory);
 
         // assert
-        Assert.That(onionBagel.Filling.Id, Is.EqualTo(baconFilling.Id));
+        Assert.That(onionBagel.Fillings.Count, Is.EqualTo(2));
+        Assert.That(onionBagel.Fillings.Any(f => f.Id == "FILB"));
     }
 
     [Test] // user story 9
@@ -204,9 +240,10 @@ public class CoreTests
         // arrange
         Inventory inventory = new Inventory();
         Bagel onionBagel = new Bagel("BGLO");
+        Filling cheese = new Filling("FILC");
         Filling paprika = new Filling("FILP");
 
         // act & assert
-        Assert.Throws<ArgumentException>(() => onionBagel.SetFilling(paprika, inventory)); // try do add paprika filling to the onion bagel (paprika filling is not in the inventory)
+        Assert.Throws<ArgumentException>(() => onionBagel.AddFillings(new[] {paprika, cheese}, inventory)); // try do add paprika filling to the onion bagel (paprika filling is not in the inventory)
     }
 }

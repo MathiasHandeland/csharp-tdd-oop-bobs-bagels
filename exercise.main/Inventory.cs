@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace exercise.main
 {
+    /// <summary>
+    /// Ensures that customers are only able to order things that are stocked in inventory.
+    /// </summary>
     public class Inventory
     {
         private HashSet<string> _inventory = new HashSet<string>()

@@ -21,6 +21,8 @@ namespace exercise.main
 
         public void AddProduct(IProduct product)
         {
+            if (IsFull)
+                throw new InvalidOperationException("Basket is full. Cannot add more products.");
             if (!_inventory.IsInInventory(product.Id)) // check if the product the customer wants to add i present in the inventory
                 throw new ArgumentException($"Product with SKU {product.Id} is not available in inventory.");
             _basketItems.Add(product); // if it is, add it to the basket
@@ -59,7 +61,6 @@ namespace exercise.main
             }
 
         }
-
         public decimal BasketTotal { get { return _basketItems.Sum(product => product.Price); } }
 
     }
