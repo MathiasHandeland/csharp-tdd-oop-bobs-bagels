@@ -70,4 +70,28 @@ public class BasketTests
         // assert
         Assert.That(isFull, Is.False);
     }
+
+    [Test]
+    public void BasketCapacityCanBeSet()
+    {
+        // arrange
+        Basket basket = new Basket();
+        
+        // act
+        basket.BasketCapacity = 10;
+        
+        // assert
+        Assert.That(basket.BasketCapacity, Is.EqualTo(10));
+    }
+
+    [Test]
+    public void BasketCapacityCannotBeSetToZeroOrNegative()
+    {
+        // arrange
+        Basket basket = new Basket();
+        
+        // act & assert
+        Assert.Throws<ArgumentException>(() => basket.BasketCapacity = 0);
+        Assert.Throws<ArgumentException>(() => basket.BasketCapacity = -5);
+    }
 }

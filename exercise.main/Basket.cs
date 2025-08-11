@@ -10,7 +10,7 @@ namespace exercise.main
     public class Basket
     {
         private List<IProduct> _basketItems = new List<IProduct>();
-        private int _basketCapacity = 5; 
+        private int _basketCapacity = 5;
 
         public void AddProduct(IProduct product)
         {
@@ -30,7 +30,23 @@ namespace exercise.main
 
         public bool IsFull { get { return _basketItems.Count >= _basketCapacity; } }
 
-    }    
+        public int BasketCapacity
+        {
+            get { return _basketCapacity; }
+            set
+            {
+                if (value > 0)
+                {
+                    _basketCapacity = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Basket capacity must be greater than zero.");
+                }
+            }
+
+        }
+    }
 }
 
 
