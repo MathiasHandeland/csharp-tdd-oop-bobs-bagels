@@ -6,7 +6,7 @@ namespace exercise.tests;
 public class BasketTests
 {
 
-    [Test]
+    [Test] // user story 1
     public void AddBagelToBasket()
     {
         // arrange
@@ -21,7 +21,7 @@ public class BasketTests
         Assert.That(basket.basketItems[0].Variant, Is.EqualTo("Onion"));
     }
 
-    [Test]
+    [Test] // user story 2
     public void RemoveBagelFromBasket()
     {
         // arrange
@@ -36,7 +36,7 @@ public class BasketTests
         Assert.That(basket.basketItems.Count, Is.EqualTo(0));
     }
 
-    [Test]
+    [Test] // user story 3
     public void BasketIsFull()
     {
         // arrange
@@ -54,7 +54,7 @@ public class BasketTests
         Assert.That(isFull, Is.True);
     }
 
-    [Test]
+    [Test] // user story 3
     public void BasketIsNotFull()
     {
         // arrange
@@ -71,7 +71,7 @@ public class BasketTests
         Assert.That(isFull, Is.False);
     }
 
-    [Test]
+    [Test] // user story 4
     public void BasketCapacityCanBeSet()
     {
         // arrange
@@ -84,7 +84,7 @@ public class BasketTests
         Assert.That(basket.BasketCapacity, Is.EqualTo(10));
     }
 
-    [Test]
+    [Test] // user story 4
     public void BasketCapacityCannotBeSetToZeroOrNegative()
     {
         // arrange

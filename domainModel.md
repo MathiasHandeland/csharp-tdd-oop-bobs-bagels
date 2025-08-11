@@ -21,7 +21,7 @@ I'd like to remove a bagel from my basket.
 ```
 | Classes      | Methods/Properties               | Scenario                                      | Outputs         |
 |--------------|----------------------------------|-----------------------------------------------|-----------------|
-| Basket       | RemoveProduct(IProduct product)  | Remove a bagel from basket (list of bagels)   | bool            |
+| Basket       | RemoveProduct(string productId)  | Remove a bagel from basket (list of bagels)   | bool            |
 
 ```
 3.
@@ -29,6 +29,9 @@ As a member of the public,
 So that I can not overfill my small bagel basket
 I'd like to know when my basket is full when I try adding an item beyond my basket capacity.
 ```
+| Classes      | Methods/Properties               | Scenario                                             | Outputs         |
+|--------------|----------------------------------|------------------------------------------------------|-----------------|
+| Basket       | IsFull (property)                | Check if basket item count exceeds basket capacity   | bool            |  
 
 ```
 4.
