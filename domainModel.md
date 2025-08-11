@@ -79,9 +79,9 @@ As a customer,
 So I can shake things up a bit,
 I'd like to be able to choose fillings for my bagel.
 ```
-| Classes      | Methods/Properties        | Scenario                                     | Outputs         |
-|--------------|---------------------------|----------------------------------------------|-----------------|
-|         |           |                  |          |  
+| Classes      | Methods/Properties        | Scenario            | Outputs         |
+|--------------|---------------------------|---------------------|-----------------|
+|  Bagel       |  Filling (property)       | Sets bagel filling  | Filling         |  
 
 ```
 9.

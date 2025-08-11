@@ -19,13 +19,12 @@ namespace exercise.main.Products
         };
 
         private string _id;
+        private Filling _filling;
 
         public Bagel(string id)
         {
             _id = id;
         }
-
-        // TODO: extra constructor for bagel where you can choose filling
 
         public string Name => "Bagel";
 
@@ -42,6 +41,9 @@ namespace exercise.main.Products
         public string Variant { get; }
 
         public string Id { get { return _id; } }
+
+        public Filling Filling { get; set; }
+
 
 
     }

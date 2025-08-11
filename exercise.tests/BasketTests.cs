@@ -143,13 +143,14 @@ public class BasketTests
     public void ChooseBagelFilling()
     {
         // arrange
+        Filling baconFilling = new Filling("FILB");
         Bagel onionBagel = new Bagel("BGLO");
 
-        // act
-        onionBagel.Filling("FILB") // add bacon filling to the onion bagel
+        // act 
+        onionBagel.Filling = baconFilling;
 
         // assert
-
+        Assert.That(onionBagel.Filling, Is.EqualTo(baconFilling));
     }
 
 
