@@ -53,4 +53,21 @@ public class BasketTests
         // assert
         Assert.That(isFull, Is.True);
     }
+
+    [Test]
+    public void BasketIsNotFull()
+    {
+        // arrange
+        Basket basket = new Basket();
+        basket.AddProduct(new Bagel("Onion"));
+        basket.AddProduct(new Bagel("Sesame"));
+        basket.AddProduct(new Bagel("Sesame"));
+        basket.AddProduct(new Bagel("Plain"));
+
+        // act
+        bool isFull = basket.IsFull;
+
+        // assert
+        Assert.That(isFull, Is.False);
+    }
 }
