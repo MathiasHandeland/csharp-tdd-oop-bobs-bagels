@@ -81,7 +81,7 @@ I'd like to be able to choose fillings for my bagel.
 ```
 | Classes      | Methods/Properties        | Scenario                                     | Outputs         |
 |--------------|---------------------------|----------------------------------------------|-----------------|
-| Bagel        | Price (property)          | Return the cost of the bagel                 | decimal         |  
+|         |           |                  |          |  
 
 ```
 9.

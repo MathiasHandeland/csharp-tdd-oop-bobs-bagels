@@ -139,5 +139,19 @@ public class BasketTests
         Assert.That(sesameBagel.Price, Is.EqualTo(0.49m));
     }
 
+    [Test] // user story 8
+    public void ChooseBagelFilling()
+    {
+        // arrange
+        Bagel onionBagel = new Bagel("BGLO");
+
+        // act
+        onionBagel.Filling("FILB") // add bacon filling to the onion bagel
+
+        // assert
+
+    }
+
+
 
 }

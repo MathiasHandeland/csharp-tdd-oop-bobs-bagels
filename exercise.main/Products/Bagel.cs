@@ -18,17 +18,16 @@ namespace exercise.main.Products
             {"BGLS", 0.49m}  // Sesame
         };
 
-        private string _name;
         private string _id;
-        private string _variant;
 
         public Bagel(string id)
         {
-            _name = "Bagel";
             _id = id;
         }
-        
-        public string Name { get; }
+
+        // TODO: extra constructor for bagel where you can choose filling
+
+        public string Name => "Bagel";
 
         public decimal Price
         {
