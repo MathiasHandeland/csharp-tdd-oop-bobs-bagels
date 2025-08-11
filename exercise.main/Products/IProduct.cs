@@ -11,6 +11,6 @@ namespace exercise.main.Products
         string Name { get; }
         decimal Price { get; }
         string Variant { get; set; }
-        string Id { get; set; }
+        string Id { get; }
     }
 }

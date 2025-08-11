@@ -13,12 +13,12 @@ namespace exercise.main.Products
         {
             _variant = variant;
         }
-        public string Name { get; set; }
+        public string Name { get; }
 
-        public decimal Price { get; set; }
+        public decimal Price { get; }
 
         public string Variant { get; set; }
 
-        public string Id { get; set; }
+        public string Id { get; }
     }
 }
