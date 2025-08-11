@@ -19,12 +19,12 @@ namespace exercise.main.Products
         };
 
         private static readonly Dictionary<string, string> VariantNames = new Dictionary<string, string>()
-    {
-        {"BGLO", "Onion"},
-        {"BGLP", "Plain"},
-        {"BGLE", "Everything"},
-        {"BGLS", "Sesame"}
-    };
+        {
+            {"BGLO", "Onion"},
+            {"BGLP", "Plain"},
+            {"BGLE", "Everything"},
+            {"BGLS", "Sesame"}
+        };
 
         private string _id;
         private List<Filling> _fillings = new List<Filling>();

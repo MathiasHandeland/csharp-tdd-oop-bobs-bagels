@@ -11,7 +11,6 @@ namespace exercise.main
     {
         private List<IProduct> _basketItems = new List<IProduct>();
         private int _basketCapacity = 5;
-
         private Inventory _inventory = new Inventory();
 
         public Basket(Inventory inventory)
