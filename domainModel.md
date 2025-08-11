@@ -69,6 +69,9 @@ As a customer,
 So I know what the damage will be,
 I'd like to know the cost of a bagel before I add it to my basket.
 ```
+| Classes      | Methods/Properties               | Scenario                                     | Outputs         |
+|--------------|----------------------------------|----------------------------------------------|-----------------|
+| Basket       | BasketTotal (propertyd)          | Return the cost of the bagel                 | decimal         |  
 
 ```
 8.
