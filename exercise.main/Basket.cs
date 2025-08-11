@@ -24,6 +24,10 @@ namespace exercise.main
             {
                 _basketItems.Remove(productToRemove);
             }
+            else
+            {
+                throw new ArgumentException("The item with this Id is not present in your basket. Could not be removed");
+            }
         }
 
         public List<IProduct> basketItems { get { return _basketItems; } }

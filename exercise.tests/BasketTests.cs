@@ -100,7 +100,7 @@ public class BasketTests
     {
         // arrange
         Basket basket = new Basket();
-        basket.AddProduct(new Bagel("BGLS"); // adds a sesame bagel to basket
+        basket.AddProduct(new Bagel("BGLS")); // adds a sesame bagel to basket
 
         // act & assert
         Assert.Throws<ArgumentException>(() => basket.RemoveProduct("BGLO")); // removing a non-present onion bagel is not allowed
