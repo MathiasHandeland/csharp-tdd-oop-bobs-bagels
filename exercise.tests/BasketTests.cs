@@ -30,8 +30,8 @@ public class BasketTests
         basket.AddProduct(onionBagel);
         
         // act
-        basket.RemoveProduct("BGLO");
-        
+        basket.RemoveProduct("BGLO"); // removes the Bagel with ID "BGLO"
+
         // assert
         Assert.That(basket.basketItems.Count, Is.EqualTo(0));
     }
@@ -93,5 +93,16 @@ public class BasketTests
         // act & assert
         Assert.Throws<ArgumentException>(() => basket.BasketCapacity = 0);
         Assert.Throws<ArgumentException>(() => basket.BasketCapacity = -5);
+    }
+
+    [Test] // user story 5
+    public void RemoveNonExistentProduct()
+    {
+        // arrange
+        Basket basket = new Basket();
+        basket.AddProduct(new Bagel("BGLS"); // adds a sesame bagel to basket
+
+        // act & assert
+        Assert.Throws<ArgumentException>(() => basket.RemoveProduct("BGLO")); // removing a non-present onion bagel is not allowed
     }
 }

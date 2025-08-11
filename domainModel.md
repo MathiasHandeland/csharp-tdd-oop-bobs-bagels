@@ -11,7 +11,7 @@ I'd like to add a specific type of bagel to my basket.
 ```
 | Classes      | Methods/Properties           | Scenario                                  | Outputs         |
 |--------------|------------------------------|-------------------------------------------|-----------------|
-| Basket       | AddProduct(IProduct product) | Adds a bagel to basket (list of bagels)   | bool            |
+| Basket       | AddProduct(IProduct product) | Add a bagel to basket (list of bagels)    | bool            |
 
 ```
 2.
@@ -39,6 +39,9 @@ As a Bob's Bagels manager,
 So that I can expand my business,
 I’d like to change the capacity of baskets.
 ```
+| Classes      | Methods/Properties               | Scenario                                                      | Outputs         |
+|--------------|----------------------------------|---------------------------------------------------------------|-----------------|
+| Basket       | BasketCapacity (property)        | Set basket capacity to value. Throw exception if value <= 0   | int             |  
 
 ```
 5.
@@ -46,6 +49,9 @@ As a member of the public
 So that I can maintain my sanity
 I'd like to know if I try to remove an item that doesn't exist in my basket.
 ```
+| Classes      | Methods/Properties               | Scenario                                                                         | Outputs         |
+|--------------|----------------------------------|----------------------------------------------------------------------------------|-----------------|
+| Basket       | RemoveProduct (string productId) | Throw exception when a product not present in basket is tried being removed      | exception             |  
 
 ```
 6.
