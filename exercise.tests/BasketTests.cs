@@ -11,14 +11,14 @@ public class BasketTests
     {
         // arrange
         Basket basket = new Basket();
-        IProduct onionBagel = new Bagel("Onion"); // adds a specific variant of Bagel
+        IProduct onionBagel = new Bagel("BGLO"); // adds a specific Bagel variant (onion bagel)
 
         // act
         basket.AddProduct(onionBagel);
 
         // assert
         Assert.That(basket.basketItems.Count, Is.EqualTo(1));
-        Assert.That(basket.basketItems[0].Variant, Is.EqualTo("Onion"));
+        Assert.That(basket.basketItems[0].Id, Is.EqualTo("BGLO"));
     }
 
     [Test] // user story 2
@@ -26,7 +26,7 @@ public class BasketTests
     {
         // arrange
         Basket basket = new Basket();
-        IProduct onionBagel = new Bagel("Onion", "BGLO");
+        IProduct onionBagel = new Bagel("BGLO");
         basket.AddProduct(onionBagel);
         
         // act
@@ -111,9 +111,9 @@ public class BasketTests
     {
         // arrange
         Basket basket = new Basket();
-        basket.AddProduct(new Bagel("Onion"));
-        basket.AddProduct(new Bagel("Plain"));
-        basket.AddProduct(new Bagel("Sesame"));
+        basket.AddProduct(new Bagel("BGLO"));
+        basket.AddProduct(new Bagel("BGLP"));
+        basket.AddProduct(new Bagel("BGLS"));
 
         // act
         decimal basketTotal = basket.BasketTotal;

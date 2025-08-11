@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,24 +9,41 @@ namespace exercise.main.Products
 {
     public class Bagel : IProduct
     {
-        private string _variant;
-        private string _id;
 
-        public Bagel(string variant)
+        private static readonly Dictionary<string, decimal> VariantPrices = new Dictionary<string, decimal>()
         {
-            _variant = variant;
-        }
-        public Bagel(string variant, string id)
+            {"BGLO", 0.49m}, // Onion
+            {"BGLP", 0.39m}, // Plain
+            {"BGLE", 0.49m}, // Everything
+            {"BGLS", 0.49m}  // Sesame
+        };
+
+        private string _name;
+        private string _id;
+        private string _variant;
+
+        public Bagel(string id)
         {
-            _variant = variant;
+            _name = "Bagel";
             _id = id;
         }
+        
         public string Name { get; }
 
-        public decimal Price { get; }
+        public decimal Price
+        {
+            get
+            {
+                if (!VariantPrices.ContainsKey(_id))
+                    throw new ArgumentException($"Invalid bagel id: {_id}");
+                return VariantPrices[_id];
+            }
+        }
 
-        public string Variant { get { return _variant; } }
+        public string Variant { get; }
 
         public string Id { get { return _id; } }
+
+
     }
 }
