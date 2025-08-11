@@ -99,3 +99,7 @@ As the manager,
 So we don't get any weird requests,
 I want customers to only be able to order things that we stock in our inventory.
 ```
+| Classes      | Methods/Properties          | Scenario                                                                                                | Outputs      |
+|--------------|-----------------------------|---------------------------------------------------------------------------------------------------------|--------------|
+|  Inventory   |  IsInInventory              | Before adding a bagel/cofee to the basket we check that the bagel/coffee variant is in the inventory    | bool         |  
+|  Inventory   |  IsInInventory              | Before adding a filling to a bagel we check that the filling variant is in the inventory                | bool         |  

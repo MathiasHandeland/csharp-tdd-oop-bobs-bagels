@@ -12,9 +12,18 @@ namespace exercise.main
         private List<IProduct> _basketItems = new List<IProduct>();
         private int _basketCapacity = 5;
 
+        private Inventory _inventory = new Inventory();
+
+        public Basket(Inventory inventory)
+        {
+            _inventory = inventory;
+        }
+
         public void AddProduct(IProduct product)
         {
-            _basketItems.Add(product);
+            if (!_inventory.IsInInventory(product.Id)) // check if the product the customer wants to add i present in the inventory
+                throw new ArgumentException($"Product with SKU {product.Id} is not available in inventory.");
+            _basketItems.Add(product); // if it is, add it to the basket
         }
 
         public void RemoveProduct(string productId)

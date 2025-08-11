@@ -43,8 +43,12 @@ namespace exercise.main.Products
         public string Id { get { return _id; } }
 
         public Filling Filling { get; set; }
-
-
+        public void SetFilling(Filling filling, Inventory inventory)
+        {
+            if (!inventory.IsInInventory(filling.Id))
+                throw new ArgumentException($"Filling {filling.Id} is not in inventory.");
+            this.Filling = filling;
+        }
 
     }
 }

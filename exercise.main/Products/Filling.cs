@@ -21,6 +21,6 @@ namespace exercise.main.Products
 
         public string Variant { get; }
 
-        public string Id => throw new NotImplementedException();
+        public string Id => _id;
     }
 }
