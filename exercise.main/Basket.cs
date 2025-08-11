@@ -10,7 +10,6 @@ namespace exercise.main
     public class Basket
     {
         private List<IProduct> _basketItems = new List<IProduct>();
-        private bool _isFull = false;
         private int _basketCapacity = 5; 
 
         public void AddProduct(IProduct product)
@@ -29,7 +28,8 @@ namespace exercise.main
 
         public List<IProduct> basketItems { get { return _basketItems; } }
 
-        
+        public bool IsFull { get {  return _basketItems.Count >= _basketCapacity; } }
+
     }    
 }
 

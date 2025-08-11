@@ -18,7 +18,7 @@ public class BasketTests
 
         // assert
         Assert.That(basket.basketItems.Count, Is.EqualTo(1));
-        Assert.That(basket.basketItems[0].Name, Is.EqualTo("Onion Bagel"));
+        Assert.That(basket.basketItems[0].Variant, Is.EqualTo("Onion"));
     }
 
     [Test]
@@ -34,5 +34,23 @@ public class BasketTests
         
         // assert
         Assert.That(basket.basketItems.Count, Is.EqualTo(0));
+    }
+
+    [Test]
+    public void BasketIsFull()
+    {
+        // arrange
+        Basket basket = new Basket();
+        basket.AddProduct(new Bagel("Onion"));
+        basket.AddProduct(new Bagel("Sesame"));
+        basket.AddProduct(new Bagel("Sesame"));
+        basket.AddProduct(new Bagel("Plain"));
+        basket.AddProduct(new Bagel("Sesame"));
+        
+        // act
+        bool isFull = basket.IsFull;
+        
+        // assert
+        Assert.That(isFull, Is.True);
     }
 }
