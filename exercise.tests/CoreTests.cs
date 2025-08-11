@@ -3,7 +3,7 @@ using exercise.main.Products;
 
 namespace exercise.tests;
 
-public class BasketTests
+public class CoreTests
 {
 
     [Test] // user story 1
@@ -153,6 +153,22 @@ public class BasketTests
         Assert.That(onionBagel.Filling, Is.EqualTo(baconFilling));
     }
 
+    [Test] // user story 9
+    public void FillingPrice()
+    {
+        // arrange
+        Filling baconFilling = new Filling("FILB");
+        Filling eggFilling = new Filling("FILE");
+        Filling cheeseFilling = new Filling("FILC");
+        Filling creamyCheeseFilling = new Filling("FILX");
+        Filling hamFilling = new Filling("FILH");
 
+        // act and assert
+        Assert.That(baconFilling.Price, Is.EqualTo(0.12m));
+        Assert.That(eggFilling.Price, Is.EqualTo(0.12m));
+        Assert.That(cheeseFilling.Price, Is.EqualTo(0.12m));
+        Assert.That(creamyCheeseFilling.Price, Is.EqualTo(0.12m));
+        Assert.That(hamFilling.Price, Is.EqualTo(0.12m));
+    }
 
 }
