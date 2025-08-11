@@ -28,7 +28,7 @@ namespace exercise.main
 
         public List<IProduct> basketItems { get { return _basketItems; } }
 
-        public bool IsFull { get {  return _basketItems.Count >= _basketCapacity; } }
+        public bool IsFull { get { return _basketItems.Count >= _basketCapacity; } }
 
     }    
 }

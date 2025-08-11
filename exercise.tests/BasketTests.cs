@@ -26,7 +26,7 @@ public class BasketTests
     {
         // arrange
         Basket basket = new Basket();
-        IProduct onionBagel = new Bagel("Onion");
+        IProduct onionBagel = new Bagel("Onion", "BGLO");
         basket.AddProduct(onionBagel);
         
         // act

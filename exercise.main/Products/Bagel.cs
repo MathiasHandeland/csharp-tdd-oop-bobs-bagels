@@ -9,17 +9,23 @@ namespace exercise.main.Products
     public class Bagel : IProduct
     {
         private string _variant;
+        private string _id;
 
         public Bagel(string variant)
         {
             _variant = variant;
         }
+        public Bagel(string variant, string id)
+        {
+            _variant = variant;
+            _id = id;
+        }
         public string Name { get; }
 
         public decimal Price { get; }
 
-        public string Variant { get { return _variant; } set { _variant = value; } }
+        public string Variant { get { return _variant; } }
 
-        public string Id { get; }
+        public string Id { get { return _id; } }
     }
 }

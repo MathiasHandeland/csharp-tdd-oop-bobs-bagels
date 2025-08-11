@@ -10,7 +10,7 @@ namespace exercise.main.Products
     {
         string Name { get; }
         decimal Price { get; }
-        string Variant { get; set; }
+        string Variant { get; }
         string Id { get; }
     }
 }
