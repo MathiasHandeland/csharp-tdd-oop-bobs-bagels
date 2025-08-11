@@ -105,4 +105,20 @@ public class BasketTests
         // act & assert
         Assert.Throws<ArgumentException>(() => basket.RemoveProduct("BGLO")); // removing a non-present onion bagel is not allowed
     }
+
+    [Test] // user story 6
+    public void BasketTotal()
+    {
+        // arrange
+        Basket basket = new Basket();
+        basket.AddProduct(new Bagel("Onion"));
+        basket.AddProduct(new Bagel("Plain"));
+        basket.AddProduct(new Bagel("Sesame"));
+
+        // act
+        decimal basketTotal = basket.BasketTotal;
+
+        // assert
+        Assert.That(basketTotal != 0);
+    }
 }

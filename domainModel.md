@@ -51,7 +51,7 @@ I'd like to know if I try to remove an item that doesn't exist in my basket.
 ```
 | Classes      | Methods/Properties               | Scenario                                                                         | Outputs         |
 |--------------|----------------------------------|----------------------------------------------------------------------------------|-----------------|
-| Basket       | RemoveProduct (string productId) | Throw exception when a product not present in basket is tried being removed      | exception             |  
+| Basket       | RemoveProduct (string productId) | Throw exception when a product not present in basket is tried being removed      | exception       |  
 
 ```
 6.
@@ -59,6 +59,9 @@ As a customer,
 So I know how much money I need,
 I'd like to know the total cost of items in my basket.
 ```
+| Classes      | Methods/Properties               | Scenario                                     | Outputs         |
+|--------------|----------------------------------|----------------------------------------------|-----------------|
+| Basket       | BasketTotal (propertyd)          | Return the total cost of products in basket  | decimal         |  
 
 ```
 7.

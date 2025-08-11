@@ -50,6 +50,9 @@ namespace exercise.main
             }
 
         }
+
+        public decimal BasketTotal { get { return _basketItems.Sum(product => product.Price); } }
+
     }
 }
 
