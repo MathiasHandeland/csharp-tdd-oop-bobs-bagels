@@ -70,6 +70,5 @@ namespace exercise.main.Products
                 _fillings.Add(filling);
             }
         }
-
     }
 }

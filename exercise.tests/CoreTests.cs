@@ -162,7 +162,7 @@ public class CoreTests
 
         // assert
         Assert.That(basketTotal != 0);
-        Assert.That(basketTotal, Is.EqualTo(1.34m));    
+        Assert.That(basketTotal, Is.EqualTo(1.34m)); // 0.49 (onion bagel) + 0.12 (bacon filling) + 0.12 (cheese filling) + 0.49 (sesame bagel) + 0.12 (cheese filling) = 1.34   
     }
 
     [Test] // user story 7

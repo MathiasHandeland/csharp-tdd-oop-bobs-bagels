@@ -10,7 +10,7 @@ namespace exercise.main
     public class Basket
     {
         private List<IProduct> _basketItems = new List<IProduct>();
-        private int _basketCapacity = 5;
+        private int _basketCapacity = 5; // default capacity of the basket
         private Inventory _inventory = new Inventory();
 
         public Basket(Inventory inventory)
@@ -61,8 +61,5 @@ namespace exercise.main
 
         }
         public decimal BasketTotal { get { return _basketItems.Sum(product => product.Price); } }
-
     }
 }
-
-
