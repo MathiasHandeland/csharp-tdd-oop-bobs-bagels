@@ -26,9 +26,9 @@ basket.AddProduct(new Bagel("BGLE"));
 basket.AddProduct(new Bagel("BGLE"));
 basket.AddProduct(new Bagel("BGLE"));
 basket.AddProduct(new Bagel("BGLE"));
-basket.AddProduct(new Coffee("COFW"));
-basket.AddProduct(new Coffee("COFW"));
-basket.AddProduct(new Coffee("COFW"));
+basket.AddProduct(new Coffee("COFB"));
+basket.AddProduct(new Coffee("COFB"));
+basket.AddProduct(new Coffee("COFB"));
 
 Receipt receipt = new Receipt(basket);
 receipt.Print();
