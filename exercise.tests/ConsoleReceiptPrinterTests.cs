@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace exercise.tests
 {
-    public class ReceiptExtentionTests
+    public class ConsoleReceiptPrinterTests
     {
-        [Test] // user story 11, printing receipt works
+        [Test] // user story 11, printing receipt to console works
         public void PrintReceipt()
         {
             // arrange
@@ -18,7 +18,7 @@ namespace exercise.tests
             Basket basket = new Basket(inventory);
             basket.AddProduct(new Bagel("BGLO"));
             basket.AddProduct(new Bagel("BGLO"));
-            Receipt receipt = new Receipt(basket);
+            ConsoleReceiptPrinter receipt = new ConsoleReceiptPrinter(basket);
 
             // redirect console output
             var output = new StringWriter();

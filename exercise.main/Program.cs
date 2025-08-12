@@ -30,5 +30,6 @@ basket.AddProduct(new Coffee("COFB"));
 basket.AddProduct(new Coffee("COFB"));
 basket.AddProduct(new Coffee("COFB"));
 
-Receipt receipt = new Receipt(basket);
-receipt.Print();
+// Can change which receipt printer to use, either console or twilio
+IReceiptPrinter consoleReceipt = new ConsoleReceiptPrinter(basket);
+consoleReceipt.Print();

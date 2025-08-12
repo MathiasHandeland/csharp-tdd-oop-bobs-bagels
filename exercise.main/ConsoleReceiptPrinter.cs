@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace exercise.main
 {
-    public class Receipt
+    public class ConsoleReceiptPrinter : IReceiptPrinter
     {
         private string _header = "    ~~~ Bob's Bagels ~~~";
         private string _thankuMessage1 = "        Thank you";
@@ -20,7 +20,7 @@ namespace exercise.main
         private Dictionary<string, (string Name, string Variant, int Quantity, decimal Subtotal)> orderDict =
             new Dictionary<string, (string Name, string Variant, int Quantity, decimal Subtotal)>();
 
-        public Receipt(Basket basket)
+        public ConsoleReceiptPrinter(Basket basket)
         {
             _basket = basket;
             DateTime = DateTime.Now;
