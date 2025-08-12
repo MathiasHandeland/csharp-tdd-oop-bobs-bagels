@@ -29,9 +29,10 @@ As a member of the public,
 So that I can not overfill my small bagel basket
 I'd like to know when my basket is full when I try adding an item beyond my basket capacity.
 ```
-| Classes      | Methods/Properties               | Scenario                                             | Outputs         |
-|--------------|----------------------------------|------------------------------------------------------|-----------------|
-| Basket       | IsFull (property)                | Check if basket item count exceeds basket capacity   | bool            |  
+| Classes      | Methods/Properties               | Scenario                                                      | Outputs         |
+|--------------|----------------------------------|---------------------------------------------------------------|-----------------|
+| Basket       | IsFull (property)                | Check if basket item count exceeds basket capacity            | bool            | 
+| Basket       | AddProduct(IProduct product)     | Throws expection when trying to add product to full basket    | exception       |
 
 ```
 4.
@@ -39,9 +40,9 @@ As a Bob's Bagels manager,
 So that I can expand my business,
 I’d like to change the capacity of baskets.
 ```
-| Classes      | Methods/Properties               | Scenario                                                      | Outputs         |
-|--------------|----------------------------------|---------------------------------------------------------------|-----------------|
-| Basket       | BasketCapacity (property)        | Set basket capacity to value. Throw exception if value <= 0   | int             |  
+| Classes      | Methods/Properties               | Scenario                                                      | Outputs          |
+|--------------|----------------------------------|---------------------------------------------------------------|------------------|
+| Basket       | BasketCapacity (property)        | Set basket capacity to value. Throw exception if value <= 0   | int or exception |  
 
 ```
 5.
@@ -79,9 +80,9 @@ As a customer,
 So I can shake things up a bit,
 I'd like to be able to choose fillings for my bagel.
 ```
-| Classes      | Methods/Properties        | Scenario            | Outputs         |
-|--------------|---------------------------|---------------------|-----------------|
-|  Bagel       |  Filling (property)       | Sets bagel filling  | Filling         |  
+| Classes      | Methods/Properties                                                   | Scenario                                                                      | Outputs                                           |
+|--------------|----------------------------------------------------------------------|-------------------------------------------------------------------------------|---------------------------------------------------|
+|  Bagel       |  AddFillings(IEnumerable<Filling> fillings, Inventory inventory)     | Adds one or multiple fillings if the fillings are in inventory bagel filling  | void (Bagel.Fillings updated or exception thrown  |  
 
 ```
 9.
@@ -101,5 +102,5 @@ I want customers to only be able to order things that we stock in our inventory.
 ```
 | Classes      | Methods/Properties          | Scenario                                                                                                | Outputs      |
 |--------------|-----------------------------|---------------------------------------------------------------------------------------------------------|--------------|
-|  Inventory   |  IsInInventory              | Before adding a bagel/cofee to the basket we check that the bagel/coffee variant is in the inventory    | bool         |  
+|  Inventory   |  IsInInventory              | Before adding a bagel/coffee to the basket we check that the bagel/coffee variant is in the inventory   | bool         |  
 |  Inventory   |  IsInInventory              | Before adding a filling to a bagel we check that the filling variant is in the inventory                | bool         |  
