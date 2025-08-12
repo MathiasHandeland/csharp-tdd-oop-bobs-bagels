@@ -125,7 +125,7 @@ As the manager,
 When customers orders a lot I think they should recieve discount,
 Special offers should be: 
 - Every Bagel is available for the 6 for £2.49 and 12 for £3.99 offer, but fillings still cost the extra amount per bagel.
-- A Black Coffee and whatever bagel for £1.25
 ```
-| Classes      | Methods/Properties        | Scenario                                        | Outputs         |
-|--------------|---------------------------|-------------------------------------------------|-----------------|
+| Classes      | Methods/Properties        | Scenario                                                                      | Outputs         |
+|--------------|---------------------------|-------------------------------------------------------------------------------|-----------------|
+| Basket       | BasketTotal (property)    | Returns the total cost of products in basket, applies discounts if applicable | decimal         |
