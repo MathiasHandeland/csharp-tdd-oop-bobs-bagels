@@ -104,3 +104,18 @@ I want customers to only be able to order things that we stock in our inventory.
 |--------------|-----------------------------|---------------------------------------------------------------------------------------------------------|--------------|
 |  Inventory   |  IsInInventory              | Before adding a bagel/coffee to the basket we check that the bagel/coffee variant is in the inventory   | bool         |  
 |  Inventory   |  IsInInventory              | Before adding a filling to a bagel we check that the filling variant is in the inventory                | bool         |  
+
+### RECEIPT EXTENTION
+```
+11.
+As a customer,
+So I can track what I spend money on,
+I want to revieve a receipt to my order.
+```
+| Classes  | Methods/Properties                | Scenario                                 | Outputs         |
+|----------|-----------------------------------|------------------------------------------|-----------------|
+| Receipt  | Print()                           | Print the receipt to the terminal        | void            |
+| Receipt  | Items (List<IProduct>)            | List of items added to the basket        | List<IProduct>  |
+| Receipt  | TotalPrice (decimal)              | Total cost of the order                  | decimal         |
+| Receipt  | Timestamp (DateTime)              | When the order was placed                | DateTime        |
+| Receipt  | ReceiptNumber (string/int)        | Unique identifier for the receipt        | string/int      |
