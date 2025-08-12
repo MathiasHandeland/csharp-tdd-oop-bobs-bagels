@@ -9,5 +9,6 @@ namespace exercise.tests
     public class ReceiptExtentionTests
     {
         // [Test] 
+        // check that something was printed
     }
 }

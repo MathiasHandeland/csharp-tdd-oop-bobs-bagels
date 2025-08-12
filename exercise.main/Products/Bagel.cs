@@ -43,7 +43,7 @@ namespace exercise.main.Products
                 if (!VariantPrices.ContainsKey(_id))
                     throw new ArgumentException($"Invalid bagel id: {_id}");
                 decimal price = VariantPrices[_id]; // get the spesific bagel´s price
-                price += _fillings.Sum(f => f.Price);
+                price += _fillings.Sum(f => f.Price); // returns 0 if the bagel have no fillings
                 return price;
             }
         }
