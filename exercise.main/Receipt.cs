@@ -1,6 +1,7 @@
 ﻿using exercise.main.Products;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,14 +64,14 @@ namespace exercise.main
                 var productDetails = item.Value;
                 string itemName = $"{productDetails.Variant} {productDetails.Name}".Trim();
                 string qty = productDetails.Quantity.ToString();
-                string subtotal = productDetails.Subtotal.ToString("£0.00");
+                string subtotal = productDetails.Subtotal.ToString("£0.00", CultureInfo.InvariantCulture);
 
                 Console.WriteLine("{0,-16} {1,3} {2,7}", itemName, qty, subtotal);
             }
 
             Console.WriteLine($"\n{_separationSymbol}\n");
             string totalLabel = "Total:";
-            string totalValue = _basket.BasketTotal.ToString("£0.00").PadLeft(28 - totalLabel.Length);
+            string totalValue = _basket.BasketTotal.ToString("£0.00", CultureInfo.InvariantCulture).PadLeft(28 - totalLabel.Length);
             Console.WriteLine(totalLabel + totalValue);
             Console.WriteLine($"\n{_thankuMessage1}");
             Console.WriteLine($"{_thankuMessage2}");
