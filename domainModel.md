@@ -117,3 +117,17 @@ I want to revieve a receipt to my order.
 | Receipt  | Print()                           | Print the receipt to the terminal                                                                                               | void                                                                               |
 | Receipt  | PopulateOrderDictionary()         | Loop through the items ordered (basket.basketItems) and store the information in the dictionary to track quantiy and subtotal   | Dictionary<string, (string Name, string Variant, int Quantity, decimal Subtotal)>  |
 | Receipt  | DateTime (property)               | When the order was placed                                                                                                       | DateTime                                                                           |
+
+### DISCOUNT EXTENTION
+```
+11.
+As the manager,
+When customers orders a lot I think they should recieve discount,
+Special offers should be:
+- 6 Onion Bagels for £2.49
+- 12 Plain Bagels for £3.99
+- 6 Everything Bagels for £2.49
+- A Black Coffee and whatever bagel for £1.25
+```
+| Classes      | Methods/Properties        | Scenario                                        | Outputs         |
+|--------------|---------------------------|-------------------------------------------------|-----------------|
