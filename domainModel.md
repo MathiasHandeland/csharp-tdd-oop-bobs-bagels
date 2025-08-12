@@ -112,10 +112,8 @@ As a customer,
 So I can track what I spend money on,
 I want to revieve a receipt to my order.
 ```
-| Classes  | Methods/Properties                | Scenario                                 | Outputs         |
-|----------|-----------------------------------|------------------------------------------|-----------------|
-| Receipt  | Print()                           | Print the receipt to the terminal        | void            |
-| Receipt  | Items (List<IProduct>)            | List of items added to the basket        | List<IProduct>  |
-| Receipt  | TotalPrice (decimal)              | Total cost of the order                  | decimal         |
-| Receipt  | Timestamp (DateTime)              | When the order was placed                | DateTime        |
-| Receipt  | ReceiptNumber (string/int)        | Unique identifier for the receipt        | string/int      |
+| Classes  | Methods/Properties                | Scenario                                                                                                                        | Outputs                                                                            |
+|----------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| Receipt  | Print()                           | Print the receipt to the terminal                                                                                               | void                                                                               |
+| Receipt  | PopulateOrderDictionary()         | Loop through the items ordered (basket.basketItems) and store the information in the dictionary to track quantiy and subtotal   | Dictionary<string, (string Name, string Variant, int Quantity, decimal Subtotal)>  |
+| Receipt  | DateTime (property)               | When the order was placed                                                                                                       | DateTime                                                                           |
