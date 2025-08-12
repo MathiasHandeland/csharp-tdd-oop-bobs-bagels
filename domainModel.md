@@ -130,13 +130,12 @@ Special offers should be:
 |--------------|---------------------------|-------------------------------------------------------------------------------|-----------------|
 | Basket       | BasketTotal (property)    | Returns the total cost of products in basket, applies discounts if applicable | decimal         |
 
-### TWILIO EXTENTION
+### TWILIO EXTENTION ATTEMPT
 ```
 13.
-As the manager,
-When customers orders a lot I think they should recieve discount,
-Special offers should be: 
-- Every Bagel is available for the 6 for £2.49 and 12 for £3.99 offer, but fillings still cost the extra amount per bagel.
+As a customer,
+So I can track what I spend money on,
+I want to revieve a receipt to my order trough twilio
 ```
 | Classes                    | Methods/Properties        | Scenario                        | Outputs         |
 |----------------------------|---------------------------|---------------------------------|-----------------|
