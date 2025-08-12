@@ -120,7 +120,7 @@ I want to revieve a receipt to my order.
 
 ### DISCOUNT EXTENTION
 ```
-11.
+12.
 As the manager,
 When customers orders a lot I think they should recieve discount,
 Special offers should be: 
