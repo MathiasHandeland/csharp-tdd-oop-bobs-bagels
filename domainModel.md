@@ -110,13 +110,13 @@ I want customers to only be able to order things that we stock in our inventory.
 11.
 As a customer,
 So I can track what I spend money on,
-I want to revieve a receipt to my order.
+I want to revieve a receipt to my order trough the console
 ```
-| Classes  | Methods/Properties                | Scenario                                                                                                                        | Outputs                                                                            |
-|----------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| Receipt  | Print()                           | Print the receipt to the terminal                                                                                               | void                                                                               |
-| Receipt  | PopulateOrderDictionary()         | Loop through the items ordered (basket.basketItems) and store the information in the dictionary to track quantiy and subtotal   | Dictionary<string, (string Name, string Variant, int Quantity, decimal Subtotal)>  |
-| Receipt  | DateTime (property)               | When the order was placed                                                                                                       | DateTime                                                                           |
+| Classes                                      | Methods/Properties                | Scenario                                                                                                                        | Outputs                                                                            |
+|----------------------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| ConsoleReceiptPrinter                        | Print()                           | Print the receipt to the terminal/console                                                                                       | void                                                                               |
+| ConsoleReceiptPrinter                        | PopulateOrderDictionary()         | Loop through the items ordered (basket.basketItems) and store the information in the dictionary to track quantiy and subtotal   | Dictionary<string, (string Name, string Variant, int Quantity, decimal Subtotal)>  |
+| ConsoleReceiptPrinter                        | DateTime (property)               | When the order was placed                                                                                                       | DateTime                                                                           |
 
 ### DISCOUNT EXTENTION
 ```
@@ -129,3 +129,15 @@ Special offers should be:
 | Classes      | Methods/Properties        | Scenario                                                                      | Outputs         |
 |--------------|---------------------------|-------------------------------------------------------------------------------|-----------------|
 | Basket       | BasketTotal (property)    | Returns the total cost of products in basket, applies discounts if applicable | decimal         |
+
+### TWILIO EXTENTION
+```
+13.
+As the manager,
+When customers orders a lot I think they should recieve discount,
+Special offers should be: 
+- Every Bagel is available for the 6 for £2.49 and 12 for £3.99 offer, but fillings still cost the extra amount per bagel.
+```
+| Classes                    | Methods/Properties        | Scenario                        | Outputs         |
+|----------------------------|---------------------------|---------------------------------|-----------------|
+| TwilioReceiptPrinter       | Print                     | Print the receipt to Twilio     | void            |

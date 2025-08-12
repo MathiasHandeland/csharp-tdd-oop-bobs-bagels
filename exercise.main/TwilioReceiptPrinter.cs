@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace exercise.main
 {
+    /// <summary>
+    /// NB! I have not been able to test this class, as I do not have a Twilio account.
+    /// </summary>
     public class TwilioReceiptPrinter : IReceiptPrinter
     {
         private string _accountSid = Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID");
