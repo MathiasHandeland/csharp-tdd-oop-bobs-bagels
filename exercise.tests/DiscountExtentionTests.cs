@@ -28,6 +28,24 @@ namespace exercise.tests
             Assert.That(basket.BasketTotal, Is.EqualTo(2.49)); // True if discount was added
         }
 
+        [Test] // user story 12, Buying 5 with same SKU and one with another SKU should not apply discount
+        public void BuyingFiveBagels()
+        {
+            // arrange
+            Inventory inventory = new Inventory();
+            Basket basket = new Basket(inventory);
+            basket.BasketCapacity = 10; // must adjust basket capacity
+            basket.AddProduct(new Bagel("BGLO"));
+            basket.AddProduct(new Bagel("BGLO"));
+            basket.AddProduct(new Bagel("BGLO"));
+            basket.AddProduct(new Bagel("BGLO"));
+            basket.AddProduct(new Bagel("BGLO"));
+            basket.AddProduct(new Bagel("BGLP"));
+
+            // act & assert
+            Assert.That(basket.BasketTotal, Is.EqualTo(2.84)); // 5 * 0.49 + 0.39 = 2.94, no discount applied
+        }
+
         [Test] // user story 12, Every Bagel should be available for the 12 for £3.99. Must be 12 with same SKU
         public void BuyingTwelveBagels()
         {

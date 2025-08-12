@@ -72,41 +72,51 @@ namespace exercise.main
             get
             {
                 decimal total = 0m;
-
-                // Group bagels by SKU
-                var bagelGroups = _basketItems
-                    .Where(p => p is Bagel)
-                    .Cast<Bagel>()
-                    .GroupBy(b => b.Id);
-
-                foreach (var group in bagelGroups) // loop through each group of bagels
-                {
-                    int count = group.Count(); // count how many bagels of the same SKU are in the group
-                    decimal basePrice = Bagel.GetBasePrice(group.Key); // get the base price of the bagel
-
-                    // 12-for-£3.99
-                    int setsOf12 = count / 12;
-                    int remainderAfter12 = count % 12;
-
-                    // 6-for-£2.49
-                    int setsOf6 = remainderAfter12 / 6;
-                    int remainder = remainderAfter12 % 6;
-
-                    total += setsOf12 * 3.99m; // add the price for every 12 bagels
-                    total += setsOf6 * 2.49m; // add the price for every 6 bagels
-                    total += remainder * basePrice; // add the price for any leftover bagels that do not fit into a 6 or 12 set
-
-                    // Sums the price of all fillings for all bagels in each group and adds it to the total.
-                    total += group.SelectMany(b => b.Fillings).Sum(f => f.Price);
-                }
-
-                // Add all non-bagel products (coffee, fillings)
-                total += _basketItems
-                    .Where(p => p is not Bagel)
-                    .Sum(p => p.Price);
-
+                total += GetBagelDiscountTotal();
+                total += GetNonBagelTotal();
                 return total;
             }
+        }
+        public decimal GetBagelDiscountTotal()
+        {
+           
+            decimal total = 0m;
+
+            // Group bagels by SKU
+            var bagelGroups = _basketItems
+                .Where(p => p.Name is "Bagel")
+                .Cast<Bagel>() // Cast to Bagel to access specific properties
+                .GroupBy(b => b.Id);
+
+            foreach (var group in bagelGroups) // loop through each group of bagels
+            {
+                int count = group.Count(); // count how many bagels of the same SKU are in the group
+                decimal basePrice = Bagel.GetBasePrice(group.Key); // get the base price of the bagel
+
+                // 12-for-£3.99
+                int setsOf12 = count / 12;
+                int remainderAfter12 = count % 12;
+
+                // 6-for-£2.49
+                int setsOf6 = remainderAfter12 / 6;
+                int remainder = remainderAfter12 % 6;
+
+                total += setsOf12 * 3.99m; // add the price for every 12 bagels
+                total += setsOf6 * 2.49m; // add the price for every 6 bagels
+                total += remainder * basePrice; // add the price for any leftover bagels that do not fit into a 6 or 12 set
+
+                // Sums the price of all fillings for all bagels in each group and adds it to the total.
+                total += group.SelectMany(b => b.Fillings).Sum(f => f.Price);
+            }
+            return total; 
+        }
+
+        // Add all non-bagel products (coffee, fillings)
+        public decimal GetNonBagelTotal()
+        {
+            return _basketItems
+                .Where(p => p.Name is not "Bagel")
+                .Sum(p => p.Price);
         }
     }
 }

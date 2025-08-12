@@ -71,7 +71,7 @@ namespace exercise.main.Products
             }
         }
 
-        // Used when calculating BasketTotal since the discount applies to the bagel itself, not to any fillings.
+        // Used when calculating BasketTotal and adding discount, since the discount applies to the bagel itself, not to any fillings.
         public static decimal GetBasePrice(string id)
         {
             return VariantPrices.ContainsKey(id) ? VariantPrices[id] : 0m;
