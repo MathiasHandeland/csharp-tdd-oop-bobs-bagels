@@ -123,10 +123,8 @@ I want to revieve a receipt to my order.
 11.
 As the manager,
 When customers orders a lot I think they should recieve discount,
-Special offers should be:
-- 6 Onion Bagels for £2.49
-- 12 Plain Bagels for £3.99
-- 6 Everything Bagels for £2.49
+Special offers should be: 
+- Every Bagel is available for the 6 for £2.49 and 12 for £3.99 offer, but fillings still cost the extra amount per bagel.
 - A Black Coffee and whatever bagel for £1.25
 ```
 | Classes      | Methods/Properties        | Scenario                                        | Outputs         |
