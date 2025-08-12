@@ -56,7 +56,7 @@ namespace exercise.main
             PopulateOrderDictionary();
 
             Console.WriteLine(_header);
-            Console.WriteLine($"\n    {DateTime}");
+            Console.WriteLine($"\n    {DateTime.ToString("yyyy-MM-dd HH:mm:ss")}");
             Console.WriteLine($"\n{_separationSymbol}\n");
 
             foreach (var item in orderDict)
@@ -70,7 +70,7 @@ namespace exercise.main
             }
 
             Console.WriteLine($"\n{_separationSymbol}\n");
-            string totalLabel = "Total:";
+            string totalLabel = "Total";
             string totalValue = _basket.BasketTotal.ToString("£0.00", CultureInfo.InvariantCulture).PadLeft(28 - totalLabel.Length);
             Console.WriteLine(totalLabel + totalValue);
             Console.WriteLine($"\n{_thankuMessage1}");
